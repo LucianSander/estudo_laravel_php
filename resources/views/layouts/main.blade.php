@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        {{-- fontes de extensões de terceiros para trazer para o projeto--}}
         <title>@yield('title')</title>
         <!-- Fonte do Google -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,11 +19,13 @@
     </head>
     <body>
         <header>
+            {{-- aqui onde é formado o cabeçalho do site incluindo uma img--}}
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
                         <img src="/img/icone.png" alt="SAN_dev">
                     </a>
+                    {{-- Criação da lista--}}
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a href="/" class="nav-link">Eventos</a>
@@ -41,7 +43,18 @@
                 </div>
             </nav>
         </header>
-        @yield('content')
+        <main>
+            <div class="container fluid">
+                <div class="row">
+                    {{-- Aqui onde vai mostrar uma mensagem de criação de usuário com sucesso usando uma condição if--}}
+                    @if (session('msg'))
+                            <p class="msg">{{ session('msg') }}</p>
+                    @endif
+                    @yield('content')
+                </div>
+            </div>
+        </main>
+        {{--Aqui o rodapé do site--}}
         <footer>
             <p>SAN_dev &copy; 2023</p>
         </footer>

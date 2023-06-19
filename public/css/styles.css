@@ -31,13 +31,25 @@ header {
     background-color: #c28008;
     border-color: #c28008;
 }
-/*imagem da barra*/
-#navbar img {
-    margin-right: 50%;
-    width: 50px;
+/*aviso de menssagem de sucesso na criação*/
+.msg {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
+    padding: 10px;
 }
 
+/*imagem da barra*/
+#navbar img {
+    width: 50px;
+    margin-left: 20%;
+}
+/*Aqui onde posso clicar ficar tudo na esquerda*/
 #navbar {
+    margin-right: 1%;
     justify-content: space-between;
     background-color: #fff;
     padding: 5px 0;
@@ -63,9 +75,9 @@ header {
 }
 
 #search-container h1 {
-    color: #c28008;
+    color: #f2a340;
     font-size: 30px;
-    font-weight: 300;
+    font-weight: 900;
 }
 
 #search-container form {
@@ -121,6 +133,25 @@ header {
 .card.card-participantes {
     color: #757575;
     font-size: 14px;
+}
+
+/*Página de criação (formulário)*/
+#event-create-container {
+    padding: 30px;
+}
+
+#event-create-container label {
+    font-weight: bold;
+}
+
+#event-create-container input,
+#event-create-container select,
+#event-create-container textarea {
+    font-size: 12px;
+}
+
+#event-create-container input {
+    margin-top: 10px;
 }
 
 /*footer rodapé*/

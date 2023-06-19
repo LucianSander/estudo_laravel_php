@@ -12,9 +12,22 @@ class EventController extends Controller
         $events = Event::all();
         return view('welcome', ['events' => $events]);
     }
-
+    /*controller que puxa a página de criação onde aparece o questionário*/
     public function create(){
             return view('events.create');
         }
+        /*controller da store para salvar a criação*/
+    public function store(Request $request){
 
+        $event = new Event;
+
+        $event->title = $request->title;
+        $event->description = $request->description;
+        $event->city = $request->city;
+        $event->private = $request->private;
+        /*usado para salvar*/
+        $event->save();
+        /*mensagem de criado com sucesso para o usuário*/
+        return redirect('/')->with('msg', 'Evento criado com sucesso!');
+    }
 }

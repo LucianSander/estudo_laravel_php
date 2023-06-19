@@ -19,8 +19,10 @@ obs: podemos passar valores por aqui também, retornando para ele mesmo
 use App\Http\Controllers\EventController;
 /* passando o controller para a index */
 Route::get('/', [EventController::class, 'index']);
-/* controller para criar um evento */
+/* controller que dá acesso a página de criação */
 Route::get('/events/create', [EventController::class, 'create']);
+/*Aqui é a rota onde vai criar o evento*/
+Route::get('/events', [EventController::class, 'store']);
 
 Route::get('/contact', function () {
     return view('contact');
