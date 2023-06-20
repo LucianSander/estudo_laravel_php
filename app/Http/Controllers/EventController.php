@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use Illuminate\Support\Facades\Redirect;
 
 class EventController extends Controller
 {
@@ -32,14 +33,14 @@ class EventController extends Controller
 
             $extension = $requestImage->extension();
 
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." .$extension;
-            /* criando a pasta*/
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            /* adicionando na pasta*/
             $requestImage->move(public_path('img/events'), $imageName);
             /*Salvar no banco de fato*/
             $event->image = $imageName;
         /*usado para salvar*/
         $event->save();
-        /*mensagem de criado com sucesso para o usuário*/
+        /*mensagem de criado com sucesso para o usuário e voltando para home*/
         return redirect('/')->with('msg', 'Evento criado com sucesso!');
     }
 
