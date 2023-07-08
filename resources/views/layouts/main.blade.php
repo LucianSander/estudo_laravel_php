@@ -28,6 +28,9 @@
                     {{-- Criação da lista--}}
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <a href="/produtos/create" class="nav-link">Produtos</a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/" class="nav-link">Eventos</a>
                         </li>
                         <li class="nav-item">
@@ -50,11 +53,11 @@
                     @if (session('msg'))
                             <p class="msg">{{ session('msg') }}</p>
                     @endif
-                    @yield('content')
                 </div>
             </div>
         </main>
         {{--Aqui o rodapé do site--}}
+        @yield('content')
         <footer>
             <p>SAN_dev &copy; 2023</p>
         </footer>
