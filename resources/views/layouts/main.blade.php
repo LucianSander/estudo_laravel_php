@@ -28,7 +28,10 @@
                     {{-- Criação da lista--}}
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="/produtos/create" class="nav-link">Produtos</a>
+                            <a href="/mostraproduto" class="nav-link">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/produtos/create" class="nav-link">Criar Produtos</a>
                         </li>
                         <li class="nav-item">
                             <a href="/" class="nav-link">Eventos</a>

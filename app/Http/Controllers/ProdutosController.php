@@ -21,4 +21,9 @@ class ProdutosController extends Controller
         $produtos->save();
         return redirect('/')->with('msg', 'Produto criado com sucesso!');
     }
+
+    public function index(){
+        $produtos = Produto::all();
+        return view('mostraproduto', ['produtos' => $produtos]);
+    }
 }

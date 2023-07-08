@@ -26,7 +26,7 @@ Route::get('/events/create', [EventController::class, 'create']);
 Route::get('/events', [EventController::class, 'store']);
 
 
-
+Route::get('/mostraproduto', [ProdutosController::class, 'index']);
 Route::get('/produtos/create', [ProdutosController::class, 'create']);
 Route::get('/produtos', [ProdutosController::class, 'store']);
 
