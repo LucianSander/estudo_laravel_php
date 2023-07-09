@@ -7,7 +7,7 @@
 <h1>Criar Produto</h1>
 
 <div id="event-create-container" class="col-md-6 offset-md-3">
-<form action="/produtos" method="get" enctype="multipart/form-data">
+<form action="/produtos" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
         <label for="nome">Nome:</label>

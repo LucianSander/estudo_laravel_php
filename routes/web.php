@@ -23,12 +23,13 @@ Route::get('/', [EventController::class, 'index']);
 /* controller que dá acesso a página de criação */
 Route::get('/events/create', [EventController::class, 'create']);
 /*Aqui é a rota onde vai criar o evento*/
-Route::get('/events', [EventController::class, 'store']);
+Route::post('/events', [EventController::class, 'store']);
+Route::get('/events/{id}', [EventController::class, 'show']);
 
 
 Route::get('/mostraproduto', [ProdutosController::class, 'index']);
 Route::get('/produtos/create', [ProdutosController::class, 'create']);
-Route::get('/produtos', [ProdutosController::class, 'store']);
+Route::post('/produtos', [ProdutosController::class, 'store']);
 
 
 
