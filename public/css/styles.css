@@ -153,7 +153,8 @@ header {
 #event-create-container input {
     margin-top: 10px;
 }
-/*Página do evento*/
+
+/*Página de visualização do evento*/
 #image-container,
 #info-container{
     margin-top: 30px;
@@ -185,6 +186,17 @@ header {
 #info-container #event-submit {
     margin: 20px 0;
 }
+
+/*items*/
+#items-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#item-list li{
+    display: flex;
+}
+
 /*footer rodapé*/
 footer {
     text-align: center;

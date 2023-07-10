@@ -10,8 +10,19 @@ class EventController extends Controller
 {
     /*Aqui está puxando os dados do banco de dados para a index*/
     public function index(){
+
+        $search = request('search');
+        if($search){
+            $events = Event::where([
+                ['title', 'LIKE', "%{$search}%"]
+            ])->get();
+        } else {
+
+
         $events = Event::all();
-        return view('welcome', ['events' => $events]);
+
+        }
+        return view('welcome', ['events' => $events, 'search' => $search]);
     }
     /*controller que puxa a página de criação onde aparece o questionário*/
     public function create(){
@@ -26,21 +37,21 @@ class EventController extends Controller
         $event->description = $request->description;
         $event->city = $request->city;
         $event->private = $request->private;
-        //$event->image = $request->image;
+        $event->items = $request->items;
+        $event->date = $request->date;
 
-
+        //Event image upload
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
 
             $requestImage = $request->image;
 
             $extension = $requestImage->extension();
 
-            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime('now')) . "." . $extension;
 
             $requestImage->move(public_path('img/events'), $imageName);
 
             $event->image = $imageName;
-
         }
 
         $event->save();
