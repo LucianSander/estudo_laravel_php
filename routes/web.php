@@ -21,7 +21,7 @@ use App\Http\Controllers\ProdutosController;
 /* passando o controller para a index */
 Route::get('/', [EventController::class, 'index']);
 /* controller que dá acesso a página de criação */
-Route::get('/events/create', [EventController::class, 'create']);
+Route::get('/events/create', [EventController::class, 'create'])->middleware('auth');
 /*Aqui é a rota onde vai criar o evento*/
 Route::post('/events', [EventController::class, 'store']);
 Route::get('/events/{id}', [EventController::class, 'show']);
