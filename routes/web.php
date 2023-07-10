@@ -26,6 +26,12 @@ Route::get('/events/create', [EventController::class, 'create'])->middleware('au
 Route::post('/events', [EventController::class, 'store']);
 Route::get('/events/{id}', [EventController::class, 'show']);
 
+Route::get('/dashboard', [EventController::class, 'dashboard'])->middleware('auth');
+
+Route::delete('/events/{id}', [EventController::class, 'destroy']);
+
+
+
 
 Route::get('/mostraproduto', [ProdutosController::class, 'index']);
 Route::get('/produtos/create', [ProdutosController::class, 'create']);
@@ -47,12 +53,4 @@ Route::get('/contact', function () {
 //});
 
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+
