@@ -13,9 +13,21 @@
             <h1>{{$event->title}}</h1>
             <p class="card-date"><ion-icon name="calendar-outline"></ion-icon>{{date('d/m/Y', strtotime($event->date))}}</p>
             <p class="event-city"><ion-icon name="location-outline"></ion-icon>{{$event->city}}</p>
-            <p class="events-participants"><ion-icon name="people-outline"></ion-icon>x participantes</p>
+            <p class="events-participants"><ion-icon name="people-outline"></ion-icon>{{count($event->users)}} Participantes</p>
             <p class="event-owner"><ion-icon name="star-outline"></ion-icon>{{$eventOwner["name"]}}</p>
-            <a href="#" class="btn btn-primary" id="event-submit">Confirmar Presença</a>
+            @if (!$hasUserJoined)
+            <form action="/events/join/{{$event->id}}" method="post">
+                @csrf
+                <a href="/events/join/{{$event->id}}"
+                    class="btn btn-primary"
+                    id="event-submit"
+                    onclick="event.preventDefault(); this.closest('form').submit();">
+                    Confirmar Presença</a>
+            </form>
+            @else
+                <p class="already-joined-msg">Presença já realizada</p>
+            @endif
+
             <h3>O Evento Conta Com:</h3>
             <ul id="items-list">
                 @foreach ($event->items as $item)
